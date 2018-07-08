@@ -2,21 +2,21 @@
 <html ng-app="MoviesApp">
 
 <head>
- <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
-<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
 
   <link rel="stylesheet" href="style.css">
@@ -40,17 +40,29 @@
         <div class="form-group">
 
           <label for="search">Search:</label>
-          <input type="text" ng-model="query"  placeholder="search text">
+          <input type="text" ng-model="query" placeholder="search text">
           <label for="search">Order by:</label>
           <select name="order" form="orderActors" ng-model="order" ng-options="chosen.name as chosen.label for chosen in sorts">
-              <option value="">Order by...</option>
-           <!-- <option value="name">Alphabetically</option>
+            <option value="">Order by...</option>
+            <!-- <option value="name">Alphabetically</option>
             <option value="age">Date of Birth</option> -->
-            
+
           </select>
+          <div id="search-results">
+            <div class="list-group">
+              <button type="button" class="list-group-item list-group-item-action active">
+                Cras justo odio
+              </button>
+              <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+              <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+              <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+              <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+            </div>
+          </div>
         </div>
-        
+
       </div>
+    
     </div>
 
 
@@ -61,8 +73,8 @@
 
       <div class="col col-12 col-sm-6 col-md-3" ng-repeat="actor in actors | filter:criteriaMatch | orderBy:order">
 
-        <div class="card" ng-click="setSelected(actor)" ng-class="{'border-primary': actor === actorSelected}" > 
-          
+        <div class="card" ng-click="setSelected(actor)" ng-class="{'border-primary': actor === actorSelected}">
+
           <img class="card-img-top" src="{{actor.imgURL}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{actor.name}}</h5>
