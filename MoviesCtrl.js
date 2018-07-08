@@ -1,4 +1,4 @@
-app.controller('MoviesCtrl', function ($scope, $http) {
+app.controller('moviesCtrl', function ($scope, $http) {
 
     function Movie(name, length, producers, imdb, poster) {
         this.name = name;
@@ -9,9 +9,8 @@ app.controller('MoviesCtrl', function ($scope, $http) {
     }
 
     
-  $scope.movies = [];
 
-  /*
+/*
   $http.get('actors.JSON').then(function(response) {
     response.data.forEach(function(plainObj) {
       var actor = new Actor (plainObj.name, plainObj.age, plainObj.imgURL, plainObj.url);
@@ -21,12 +20,23 @@ app.controller('MoviesCtrl', function ($scope, $http) {
 }, function(error) {
     console.error(error);
   });
+*/
 
- */
+  
+    $scope.movies = [];
+    $scope.query = "";
 
-    $scope.criteriaMatch = function (actor) {
+    var movie = new Movie ("The Rocky Horror Picture Show", 100,  "chunky productions", "https://www.themoviedb.org/movie/36685-the-rocky-horror-picture-show?language=en-US", "https://image.tmdb.org/t/p/w600_and_h900_bestv2/v2NC7o8f7AZvQbOAwrfRbe5Z106.jpg" );
+    $scope.movies.push(movie);
+    var movie = new Movie ("The Rocky Horror Picture Show", 100,  "chunky productions", "https://www.themoviedb.org/movie/36685-the-rocky-horror-picture-show?language=en-US", "https://image.tmdb.org/t/p/w600_and_h900_bestv2/v2NC7o8f7AZvQbOAwrfRbe5Z106.jpg" );
+    $scope.movies.push(movie);
+    var movie = new Movie ("The Rocky Horror Picture Show", 100,  "chunky productions", "https://www.themoviedb.org/movie/36685-the-rocky-horror-picture-show?language=en-US", "https://image.tmdb.org/t/p/w600_and_h900_bestv2/v2NC7o8f7AZvQbOAwrfRbe5Z106.jpg" );
+    $scope.movies.push(movie);
+    console.log($scope.movies);
 
-        if (!$scope.query || actor.name.toLowerCase().includes($scope.query.toLowerCase())) { return true; }
+    $scope.criteriaMatch = function (movie) {
+
+        if (!$scope.query || movie.name.toLowerCase().includes($scope.query.toLowerCase())) { return true; }
         else { return false; }
 
     };
@@ -34,10 +44,10 @@ app.controller('MoviesCtrl', function ($scope, $http) {
     $scope.sorts = [{label: 'Alphabetically', name: 'name'},{label: 'Birthday', name: 'age'}];
 
 
-    $scope.actorSelected = null;
-    $scope.setSelected = function (actorSelected) {
-        $scope.actorSelected = actorSelected;
-     };
+    $scope.movieSelected = null;
+    $scope.setSelected = function (movieSelected) {
+        $scope.movieSelected = movieSelected;
+     };  
 
 });
 

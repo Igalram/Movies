@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="app.js"></script>
   <script src="MoviesCtrl.js"></script>
+  <script src="MoviesDirective.js"></script>
 
 
 </head>
@@ -30,10 +31,13 @@
 <body>
 
 
-  <div class="container" ng-controller="actorsCtrl">
+  <div class="container" ng-controller="moviesCtrl">
 
     <div class="jumbotron">
       <h1>Movies</h1>
+    
+    
+
 
 
       <div class="form-row">
@@ -41,31 +45,26 @@
 
           <label for="search">Search:</label>
           <input type="text" ng-model="query" placeholder="search text">
-          <label for="search">Order by:</label>
-          <select name="order" form="orderActors" ng-model="order" ng-options="chosen.name as chosen.label for chosen in sorts">
+         <!-- <label for="search">Order by:</label>
+          <select name="order" form="orderMovies" ng-model="order" ng-options="chosen.name as chosen.label for chosen in sorts">
             <option value="">Order by...</option>
-            <!-- <option value="name">Alphabetically</option>
-            <option value="age">Date of Birth</option> -->
+             <option value="name">Alphabetically</option>
+            <option value="age">Date of Birth</option>   -->
+
 
           </select>
           <div id="search-results">
-            <div class="list-group">
-              <button type="button" class="list-group-item list-group-item-action active">
-                Cras justo odio
-              </button>
-              <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-              <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-              <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-              <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+            <movies-directive></movies-directive>
+            
             </div>
           </div>
         </div>
 
       </div>
-    
+
     </div>
 
-
+<!--
 
     <div class="row">
 
@@ -88,7 +87,7 @@
 
     </div>
 
-
+-->
 
 </body>
 
