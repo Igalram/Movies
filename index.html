@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="actorsApp">
+
+<head>
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+  <script src="actorsGalleryCtrl.js"></script>
+
+
+</head>
+
+
+<body>
+
+
+  <div class="container" ng-controller="actorsCtrl">
+
+    <div class="jumbotron">
+      <h1>Actors</h1>
+
+
+      <div class="form-row">
+        <div class="form-group">
+
+          <label for="search">Search:</label>
+          <input type="text" ng-model="query"  placeholder="search text">
+          <label for="search">Order by:</label>
+          <select name="order" form="orderActors" ng-model="order" ng-options="chosen.name as chosen.label for chosen in sorts">
+              <option value="">Order by...</option>
+           <!-- <option value="name">Alphabetically</option>
+            <option value="age">Date of Birth</option> -->
+            
+          </select>
+        </div>
+        
+      </div>
+    </div>
+
+
+
+    <div class="row">
+
+
+
+      <div class="col col-12 col-sm-6 col-md-3" ng-repeat="actor in actors | filter:criteriaMatch | orderBy:order">
+
+        <div class="card" ng-click="setSelected(actor)" ng-class="{'border-primary': actor === actorSelected}" > 
+          
+          <img class="card-img-top" src="{{actor.imgURL}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{actor.name}}</h5>
+            <p class="card-text">{{actor.age | date }}</p>
+            <a href="{{actor.url}}" class="btn btn-primary">imdb</a>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+</body>
+
+</html>
