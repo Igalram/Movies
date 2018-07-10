@@ -21,8 +21,10 @@
 
   <link rel="stylesheet" href="style.css">
   <script src="app.js"></script>
+  <script src="convert.js"></script>
   <script src="MoviesCtrl.js"></script>
   <script src="MoviesDirective.js"></script>
+
 
 
 </head>
@@ -35,8 +37,8 @@
 
     <div class="jumbotron">
       <h1>Movies</h1>
-    
-    
+
+
 
 
 
@@ -44,27 +46,27 @@
         <div class="form-group">
 
           <label for="search">Search:</label>
-          <input type="text" ng-model="query" placeholder="search text">
-         <!-- <label for="search">Order by:</label>
+          <input type="text" ng-model="query" placeholder="search text" ng-change="getResults()">
+          <!-- <label for="search">Order by:</label>
           <select name="order" form="orderMovies" ng-model="order" ng-options="chosen.name as chosen.label for chosen in sorts">
             <option value="">Order by...</option>
              <option value="name">Alphabetically</option>
-            <option value="age">Date of Birth</option>   -->
+            <option value="age">Date of Birth</option>   
 
 
-          </select>
+          </select>-->
           <div id="search-results">
             <movies-directive></movies-directive>
-            
-            </div>
+
           </div>
         </div>
-
       </div>
 
     </div>
 
-<!--
+  </div>
+
+  <!--
 
     <div class="row">
 
