@@ -18,8 +18,14 @@ h1 {
     font-size: 7em;
 }
 
+h3 {
+    font-family: 'Lobster', cursive;
+
+}
+
 .form-row {
     position: relative;
+    margin-top: 30px;
 }
 
 .list-group {
@@ -36,6 +42,10 @@ h1 {
 
 a.span {
     vertical-align: top;
+}
+
+.jumbotron {
+    margin-bottom: 0px;
 }
 
 
